@@ -1,0 +1,56 @@
+<div class="contenedor-card">
+  <mat-card class="card-empleados">
+    <mat-card-header>
+      <mat-card-title>Lista de Empleados</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Botón principal -->
+      <button mat-flat-button color="primary" (click)="nuevo()">
+        Crear Empleado
+      </button>
+
+      <!-- Tabla de empleados -->
+      <table mat-table [dataSource]="listaEmpleados" class="mat-elevation-z8 tabla-empleados">
+        <!-- Nombre Completo -->
+        <ng-container matColumnDef="nombreCompleto">
+          <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+          <td mat-cell *matCellDef="let element">{{ element.nombreCompleto }}</td>
+        </ng-container>
+
+        <!-- Correo -->
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let element">{{ element.correo }}</td>
+        </ng-container>
+
+        <!-- Sueldo -->
+        <ng-container matColumnDef="sueldo">
+          <th mat-header-cell *matHeaderCellDef> Sueldo </th>
+          <td mat-cell *matCellDef="let element">{{ element.sueldo }}</td>
+        </ng-container>
+
+        <!-- Fecha Contrato -->
+        <ng-container matColumnDef="fechaContrato">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Contrato </th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaContrato | date:'dd/MM/yyyy' }}</td>
+        </ng-container>
+
+        <!-- Acción -->
+        <ng-container matColumnDef="accion">
+          <th mat-header-cell *matHeaderCellDef> Acción </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab color="primary" (click)="editar(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" (click)="eliminar(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

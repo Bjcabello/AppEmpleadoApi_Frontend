@@ -1,0 +1,32 @@
+<div class="mat-elevation-z8">
+  <form [formGroup]="formEmpleado">
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput formControlName="nombreCompleto" placeholder="Nombre Completo">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo" placeholder="Correo">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Sueldo</mat-label>
+        <input matInput type="number" formControlName="sueldo" placeholder="sueldo">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Fecha Contrato</mat-label>
+        <input matInput type="date" formControlName="fechaContrato" placeholder="Selecciona una fecha">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <button mat-flat-button color="primary" type="button" (click)="guardar()">Guardar</button>
+      <button mat-flat-button color="warm" type="button" (click)="volver()">Volver</button>
+    </div>
+  </form>
+</div>
